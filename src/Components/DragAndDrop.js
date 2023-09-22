@@ -13,6 +13,12 @@ function App() {
   const handleDelete = (id) => {
     dispatch(todoActions.delete(id));
   };
+  const handleClearCompleted = () => {
+    dispatch(todoActions.clearCompleted());
+  };
+  const handleChange = (id) => {
+    dispatch(todoActions.check(id));
+  };
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
@@ -49,7 +55,8 @@ function App() {
                             type="checkbox"
                             className="checkbox"
                             defaultChecked={checked}
-                          ></input>{" "}
+                            onChange={() => handleChange(id)}
+                          ></input>
                           <p>{title}</p>
                           <button onClick={() => handleDelete(id)}>
                             delete
@@ -64,6 +71,7 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
+        <button onClick={() => handleClearCompleted()}>Clear completed</button>
       </header>
       <p></p>
     </div>
