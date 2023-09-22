@@ -1,27 +1,15 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-color: hsl(hsl(0, 0%, 98%));
+  height: 100vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(10px + 1.5vmin);
 }
 
 .App-link {
@@ -35,4 +23,79 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.characters {
+  list-style: none;
+  padding-left: 0;
+}
+
+.characters li,
+.input-container {
+  width: 400px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: solid 2px #d0d0d0;
+  border-radius: 0.2em;
+  padding: 0.5em 0.8em 0.5em 0.5em;
+  margin-bottom: 1em;
+}
+
+.characters p {
+  max-width: none;
+  font-weight: bold;
+  margin: 0;
+}
+
+.characters-thumb {
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 2em;
+  height: 2em;
+  background-color: #e8e8e8;
+  padding: 0.5em;
+  margin-right: 0.5em;
+}
+
+.characters-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.input-container {
+  display: flex;
+}
+.input {
+  width: 85%;
+  height: 75%;
+  border: none;
+  font-size: 18px;
+}
+.input:focus {
+  outline: none;
+}
+.checkbox {
+  text-align: center;
+  appearance: none;
+  height: 30px;
+  width: 30px;
+  margin-right: 12px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: inherit;
+  background-clip: content-box;
+  box-sizing: border-box;
+}
+.checkbox:checked {
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
 }
