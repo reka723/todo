@@ -3,10 +3,16 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
 import InputForm from "./InputForm";
+import { todoActions } from "../store/todoSlice";
 
 function App() {
   const list = useSelector((state) => state.todo.list);
   const counter = useSelector((state) => state.todo.counter);
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(todoActions.delete(id));
+  };
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
@@ -34,6 +40,7 @@ function App() {
                     <Draggable key={id} draggableId={id} index={index}>
                       {(provided) => (
                         <li
+                          className="card"
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -44,6 +51,9 @@ function App() {
                             defaultChecked={checked}
                           ></input>{" "}
                           <p>{title}</p>
+                          <button onClick={() => handleDelete(id)}>
+                            delete
+                          </button>
                         </li>
                       )}
                     </Draggable>

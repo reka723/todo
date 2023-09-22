@@ -21,6 +21,10 @@ const todoSlice = createSlice({
       state.list[action.payload.id - 1].checked =
         !state.list[action.payload.id - 1].checked;
     },
+    delete(state, action) {
+      const idToDelete = action.payload;
+      state.list = state.list.filter((item) => item.id !== idToDelete);
+    },
   },
 });
 

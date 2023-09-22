@@ -64,6 +64,11 @@
   height: auto;
 }
 
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
 .input-container {
   display: flex;
 }
