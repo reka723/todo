@@ -29,9 +29,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>TODO</h1>
+    <>
+      <h1>TODO</h1>
+      <div className="drag-and-drop">
         <InputForm />
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="characters">
@@ -67,14 +67,15 @@ function App() {
                   );
                 })}
                 {provided.placeholder}
+                <button onClick={() => handleClearCompleted()}>
+                  Clear completed
+                </button>
               </ul>
             )}
           </Droppable>
         </DragDropContext>
-        <button onClick={() => handleClearCompleted()}>Clear completed</button>
-      </header>
-      <p></p>
-    </div>
+      </div>
+    </>
   );
 }
 

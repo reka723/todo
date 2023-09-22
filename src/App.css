@@ -1,15 +1,30 @@
 .App {
   text-align: center;
-  background-color: hsl(hsl(0, 0%, 98%));
   height: 100vh;
+  background-image: url("../public/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-color: hsl(235, 21%, 11%);
 }
 
-.App-header {
+.drag-and-drop {
+  margin: 0 auto;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 1.5vmin);
+}
+
+h1 {
+  padding-top: 12%;
+  color: hsl(0, 0%, 98%);
+  letter-spacing: 15px;
+
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .App-link {
@@ -28,40 +43,25 @@
 .characters {
   list-style: none;
   padding-left: 0;
+  background-color: hsl(233, 14%, 35%);
 }
 
 .characters li,
 .input-container {
+  background-color: hsl(233, 14%, 35%);
   width: 400px;
   height: 30px;
   display: flex;
   align-items: center;
-  border: solid 2px #d0d0d0;
-  border-radius: 0.2em;
   padding: 0.5em 0.8em 0.5em 0.5em;
-  margin-bottom: 1em;
+}
+.characters li {
+  border-bottom: hsl(0, 0%, 98%) 1px solid;
 }
 
 .characters p {
   max-width: none;
-  font-weight: bold;
   margin: 0;
-}
-
-.characters-thumb {
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 2em;
-  height: 2em;
-  background-color: #e8e8e8;
-  padding: 0.5em;
-  margin-right: 0.5em;
-}
-
-.characters-thumb img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .card {
@@ -77,6 +77,7 @@
   height: 75%;
   border: none;
   font-size: 18px;
+  background-color: hsl(233, 14%, 35%);
 }
 .input:focus {
   outline: none;
