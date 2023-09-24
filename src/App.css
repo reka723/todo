@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 .App {
   text-align: center;
   height: 100vh;
@@ -6,6 +7,7 @@
   background-position: top;
   background-size: 100%;
   background-color: hsl(235, 21%, 11%);
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .drag-and-drop {
@@ -17,10 +19,12 @@
   justify-content: center;
   font-size: calc(10px + 1.5vmin);
 }
+.drag-and-drop > * {
+}
 
 h1 {
   padding-top: 12%;
-  color: hsl(0, 0%, 98%);
+  color: hsl(236, 33%, 92%);
   letter-spacing: 15px;
 
   margin: 0;
@@ -44,6 +48,12 @@ h1 {
   list-style: none;
   padding-left: 0;
   background-color: hsl(233, 14%, 35%);
+  margin: 0;
+  margin-top: 1em;
+}
+
+.input-container {
+  border-radius: 5px;
 }
 
 .characters li,
@@ -53,15 +63,18 @@ h1 {
   height: 30px;
   display: flex;
   align-items: center;
-  padding: 0.5em 0.8em 0.5em 0.5em;
+  padding: 10px 20px;
 }
 .characters li {
   border-bottom: hsl(0, 0%, 98%) 1px solid;
+  text-align: start;
 }
 
 .characters p {
+  padding-top: 1%;
   max-width: none;
   margin: 0;
+  color: hsl(236, 33%, 92%);
 }
 
 .card {
@@ -107,12 +120,14 @@ h1 {
 }
 
 .bottom-container {
-  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   font-size: 12px;
+  width: 400px;
+  padding: 10px 20px;
+  background-color: hsl(233, 14%, 35%);
 }
 
 .filter-container {
@@ -121,4 +136,24 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   margin-inline: 20px;
+}
+
+.filter-container > p:hover,
+.bottom-container > :last-child:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 98%);
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    background-size: 200%;
+  }
+  h1 {
+    margin-right: 50%;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 400px;
+  }
 }

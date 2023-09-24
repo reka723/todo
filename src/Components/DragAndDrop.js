@@ -37,84 +37,84 @@ function App() {
 
   console.log(filteredItems);
   return (
-    <>
+    <div className="container">
       <h1>TODO</h1>
       <div className="drag-and-drop">
         <InputForm />
-        {filteredItems.length > 0 && (
-          <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="characters">
-              {(provided) => (
-                <ul
-                  className="characters"
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                >
-                  {filteredItems.map(({ id, title, checked }, index) => {
-                    return (
-                      <Draggable key={id} draggableId={id} index={index}>
-                        {(provided) => (
-                          <li
-                            className="card"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            <input
-                              type="checkbox"
-                              className="checkbox"
-                              defaultChecked={checked}
-                              onChange={() => handleChange(id)}
-                            ></input>
-                            <p>{title}</p>
-                            <button onClick={() => handleDelete(id)}>
-                              delete
-                            </button>
-                          </li>
-                        )}
-                      </Draggable>
-                    );
-                  })}
-                  {provided.placeholder}
-                  <div className="bottom-container">
-                    <p>
-                      {list.filter((item) => item.checked === false).length}
-                      items left
-                    </p>
-                    <div className="filter-container">
-                      <p
-                        onClick={() => {
-                          handleFilter("all");
-                        }}
-                      >
-                        All
-                      </p>
-                      <p
-                        onClick={() => {
-                          handleFilter(false);
-                        }}
-                      >
-                        Active
-                      </p>
-                      <p
-                        onClick={() => {
-                          handleFilter(true);
-                        }}
-                      >
-                        Completed
-                      </p>
-                    </div>
-                    <button onClick={() => handleClearCompleted()}>
-                      Clear completed
-                    </button>
-                  </div>
-                </ul>
-              )}
-            </Droppable>
-          </DragDropContext>
-        )}
+        <div>
+          {filteredItems.length > 0 && (
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+              <Droppable droppableId="characters">
+                {(provided) => (
+                  <ul
+                    className="characters"
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                  >
+                    {filteredItems.map(({ id, title, checked }, index) => {
+                      return (
+                        <Draggable key={id} draggableId={id} index={index}>
+                          {(provided) => (
+                            <li
+                              className="card"
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                            >
+                              <input
+                                type="checkbox"
+                                className="checkbox"
+                                defaultChecked={checked}
+                                onChange={() => handleChange(id)}
+                              ></input>
+                              <p>{title}</p>
+                              <button onClick={() => handleDelete(id)}>
+                                delete
+                              </button>
+                            </li>
+                          )}
+                        </Draggable>
+                      );
+                    })}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
+          )}
+        </div>
+        <div className="bottom-container">
+          <p>
+            {list.filter((item) => item.checked === false).length}
+            &nbsp;items left
+          </p>
+          <div className="filter-container">
+            <p
+              onClick={() => {
+                handleFilter("all");
+              }}
+            >
+              All
+            </p>
+            <p
+              onClick={() => {
+                handleFilter(false);
+              }}
+            >
+              Active
+            </p>
+            <p
+              onClick={() => {
+                handleFilter(true);
+              }}
+            >
+              Completed
+            </p>
+          </div>
+          <p onClick={() => handleClearCompleted()}>Clear completed</p>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
