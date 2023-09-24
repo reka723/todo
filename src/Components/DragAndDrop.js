@@ -20,6 +20,9 @@ function App() {
   const handleChange = (id) => {
     dispatch(todoActions.check(id));
   };
+  const handleFilter = (filter) => {
+    setFilter(filter);
+  };
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
@@ -29,13 +32,16 @@ function App() {
     items.splice(result.destination.index, 0, reorderedItem);
     dispatch(todoActions.dragDrop(items));
   }
+  const filteredItems =
+    filter === "all" ? list : list.filter((item) => item.checked === filter);
 
+  console.log(filteredItems);
   return (
     <>
       <h1>TODO</h1>
       <div className="drag-and-drop">
         <InputForm />
-        {list.length > 0 && (
+        {filteredItems.length > 0 && (
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="characters">
               {(provided) => (
@@ -44,7 +50,7 @@ function App() {
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
-                  {list.map(({ id, title, checked }, index) => {
+                  {filteredItems.map(({ id, title, checked }, index) => {
                     return (
                       <Draggable key={id} draggableId={id} index={index}>
                         {(provided) => (
@@ -71,17 +77,32 @@ function App() {
                   })}
                   {provided.placeholder}
                   <div className="bottom-container">
-                    <p>{list.length} items left</p>
+                    <p>
+                      {list.filter((item) => item.checked === false).length}
+                      items left
+                    </p>
                     <div className="filter-container">
                       <p
                         onClick={() => {
-                          console.log("first");
+                          handleFilter("all");
                         }}
                       >
                         All
                       </p>
-                      <p>Active</p>
-                      <p>Completed</p>
+                      <p
+                        onClick={() => {
+                          handleFilter(false);
+                        }}
+                      >
+                        Active
+                      </p>
+                      <p
+                        onClick={() => {
+                          handleFilter(true);
+                        }}
+                      >
+                        Completed
+                      </p>
                     </div>
                     <button onClick={() => handleClearCompleted()}>
                       Clear completed

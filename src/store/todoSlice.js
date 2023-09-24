@@ -20,7 +20,7 @@ const todoSlice = createSlice({
     check(state, action) {
       state.list = state.list.map((item) => {
         if (item.id === action.payload) {
-          return { ...item, checked: true };
+          return { ...item, checked: !item.checked };
         }
         return item;
       });
