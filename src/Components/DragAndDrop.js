@@ -6,7 +6,8 @@ import InputForm from "./InputForm";
 import { todoActions } from "../store/todoSlice";
 
 function App() {
-  const [list, setList] = useState(useSelector((state) => state.todo.list));
+  const list = useSelector((state) => state.todo.list);
+  const [filter, setFilter] = useState("all");
   const counter = useSelector((state) => state.todo.counter);
   const dispatch = useDispatch();
 
@@ -26,8 +27,7 @@ function App() {
     const items = Array.from(list);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-    setList(items);
-    console.log(items);
+    dispatch(todoActions.dragDrop(items));
   }
 
   return (
@@ -70,9 +70,23 @@ function App() {
                     );
                   })}
                   {provided.placeholder}
-                  <button onClick={() => handleClearCompleted()}>
-                    Clear completed
-                  </button>
+                  <div className="bottom-container">
+                    <p>{list.length} items left</p>
+                    <div className="filter-container">
+                      <p
+                        onClick={() => {
+                          console.log("first");
+                        }}
+                      >
+                        All
+                      </p>
+                      <p>Active</p>
+                      <p>Completed</p>
+                    </div>
+                    <button onClick={() => handleClearCompleted()}>
+                      Clear completed
+                    </button>
+                  </div>
                 </ul>
               )}
             </Droppable>

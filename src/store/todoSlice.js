@@ -25,6 +25,9 @@ const todoSlice = createSlice({
         return item;
       });
     },
+    dragDrop(state, action) {
+      state.list = action.payload;
+    },
 
     clearCompleted(state) {
       state.list = state.list.filter((item) => item.checked === false);
