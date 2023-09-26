@@ -11,7 +11,7 @@
   font-family: "Josefin Sans", sans-serif;
   color: hsl(234, 39%, 85%);
 }
-.App.dark {
+.dark {
   background-color: hsl(235, 21%, 11%);
 }
 

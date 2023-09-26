@@ -8,9 +8,8 @@ import { IconButton } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DarkModeToggle } from "./Toggle";
 
-function App() {
+function App({ isDark, setIsDark }) {
   const list = useSelector((state) => state.todo.list);
-  const [isDark, setIsDark] = useState(true);
   const [filter, setFilter] = useState("all");
   const counter = useSelector((state) => state.todo.counter);
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 
 export const DarkModeToggle = ({ isDark, setIsDark }) => {
   return (
-    <IconButton onClick={({ target }) => setIsDark((old) => !old)}>
+    <IconButton onClick={() => setIsDark((old) => !old)}>
       {isDark ? <LightModeIcon /> : <DarkModeIcon />}
     </IconButton>
   );
