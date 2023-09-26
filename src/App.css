@@ -1,20 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap");
 
+:root {
+  --body-bg: hsl(0, 0%, 98%);
+  --container-bg: hsl(230, 25%, 95%);
+  --shadow: hsl(234, 11%, 52%);
+  --decoration: hsl(234, 39%, 85%);
+  --hover: hsl(237, 14%, 26%);
+  --secondary-color: hsl(233, 14%, 35%);
+  --background: url("../public/bg-desktop-light.jpg");
+}
+.dark {
+  --body-bg: hsl(235, 21%, 11%);
+  --container-bg: hsl(235, 24%, 19%);
+  --shadow: hsl(235, 24%, 19%);
+  --secondary-color: hsl(234, 39%, 85%);
+  --hover: hsl(236, 33%, 92%);
+  --decoration: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+  --background: url("../public/bg-desktop-dark.jpg");
+}
+
 .App {
   text-align: center;
   height: 100vh;
-  background-image: url("../public/bg-desktop-dark.jpg");
+  background-image: var(--background);
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100%;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--body-bg);
   font-family: "Josefin Sans", sans-serif;
-  color: hsl(234, 39%, 85%);
+  color: var(--secondary-color);
 }
-.dark {
-  background-color: hsl(235, 21%, 11%);
-}
+header {
+  width: 15%;
+  margin: 0 auto;
+  padding-top: 10%;
+  display: flex;
+  align-items: flex-end;
 
+  margin-bottom: 32px;
+  gap: 50%;
+}
 .drag-and-drop {
   margin: 0 auto;
   width: 50%;
@@ -26,12 +53,12 @@
 }
 
 h1 {
-  padding-top: 10%;
   letter-spacing: 15px;
 
   margin: 0;
-  margin-bottom: 32px;
+
   margin-left: -10%;
+  color: hsl(236, 33%, 92%);
 }
 
 .App-link {
@@ -50,6 +77,7 @@ h1 {
   margin-top: 1em;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: var(--shadow) 5px 5px 20px;
 }
 .characters {
   list-style: none;
@@ -59,11 +87,12 @@ h1 {
 
 .input-container {
   border-radius: 5px;
+  box-shadow: var(--shadow) 5px 5px 20px;
 }
 
 .characters li,
 .input-container {
-  background-color: hsla(235, 24%, 19%, 1);
+  background-color: var(--container-bg);
   width: 400px;
   height: 30px;
   display: flex;
@@ -75,7 +104,7 @@ h1 {
   visibility: hidden;
 }
 .characters li {
-  border-bottom: hsl(234, 11%, 52%) 1px solid;
+  border-bottom: var(--decoration) 1px solid;
   text-align: start;
 }
 
@@ -87,7 +116,7 @@ h1 {
 }
 .checked {
   text-decoration: line-through;
-  color: hsl(234, 11%, 52%);
+  color: var(--decoration);
 }
 
 .card {
@@ -99,7 +128,7 @@ h1 {
 }
 
 .checkbox:hover {
-  background: linear-gradient(hsla(235, 24%, 19%, 1), hsla(235, 24%, 19%, 1))
+  background: linear-gradient(var(--container-bg), var(--container-bg))
       padding-box,
     linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))
       border-box;
@@ -119,8 +148,8 @@ h1 {
   height: 75%;
   border: none;
   font-size: 21px;
-  background-color: hsla(235, 24%, 19%, 1);
-  color: hsl(234, 39%, 85%);
+  background-color: var(--container-bg);
+  color: var(--secondary-color);
   font-weight: 100;
 }
 .input:focus {
@@ -132,7 +161,7 @@ h1 {
   height: 30px;
   width: 30px;
   margin-right: 12px;
-  border: 1px solid hsl(234, 11%, 52%);
+  border: 1px solid var(--decoration);
   border-radius: 50%;
   cursor: pointer;
   background-color: inherit;
@@ -158,8 +187,8 @@ h1 {
   font-size: 12px;
   width: 400px;
   padding: 10px 20px;
-  background-color: hsla(235, 24%, 19%, 1);
-  color: hsl(234, 11%, 52%);
+  background-color: var(--container-bg);
+  color: var(--decoration);
 }
 
 .filter-container {
@@ -176,7 +205,7 @@ h1 {
 .filter-container > p:hover,
 .bottom-container > :last-child:hover {
   cursor: pointer;
-  color: hsl(0, 0%, 98%);
+  color: var(--hover);
 }
 
 @media only screen and (max-width: 768px) {

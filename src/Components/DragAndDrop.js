@@ -41,10 +41,10 @@ function App({ isDark, setIsDark }) {
   console.log(filteredItems);
   return (
     <div className="container">
-      <div>
+      <header>
         <h1>TODO</h1>
         <DarkModeToggle setIsDark={setIsDark} isDark={isDark} />
-      </div>
+      </header>
       <div className="drag-and-drop">
         <InputForm />
         <div className="list-container">
