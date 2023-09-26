@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
 import InputForm from "./InputForm";
 import { todoActions } from "../store/todoSlice";
+import { IconButton } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 
 function App() {
   const list = useSelector((state) => state.todo.list);
@@ -67,13 +69,16 @@ function App() {
                                 defaultChecked={checked}
                                 onChange={() => handleChange(id)}
                               ></input>
-                              <p>{title}</p>
-                              <button
+                              <p className={checked ? "checked" : ""}>
+                                {title}
+                              </p>
+                              <IconButton
+                                style={{ color: "hsl(234, 11%, 52%)" }}
                                 className="hide-delete"
                                 onClick={() => handleDelete(id)}
                               >
-                                delete
-                              </button>
+                                <ClearIcon />
+                              </IconButton>
                             </li>
                           )}
                         </Draggable>
