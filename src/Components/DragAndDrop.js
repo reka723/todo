@@ -41,7 +41,7 @@ function App() {
       <h1>TODO</h1>
       <div className="drag-and-drop">
         <InputForm />
-        <div>
+        <div className="list-container">
           {filteredItems.length > 0 && (
             <DragDropContext onDragEnd={handleOnDragEnd}>
               <Droppable droppableId="characters">
@@ -68,7 +68,10 @@ function App() {
                                 onChange={() => handleChange(id)}
                               ></input>
                               <p>{title}</p>
-                              <button onClick={() => handleDelete(id)}>
+                              <button
+                                className="hide-delete"
+                                onClick={() => handleDelete(id)}
+                              >
                                 delete
                               </button>
                             </li>
@@ -82,36 +85,39 @@ function App() {
               </Droppable>
             </DragDropContext>
           )}
-        </div>
-        <div className="bottom-container">
-          <p>
-            {list.filter((item) => item.checked === false).length}
-            &nbsp;items left
-          </p>
-          <div className="filter-container">
-            <p
-              onClick={() => {
-                handleFilter("all");
-              }}
-            >
-              All
+          <div className="bottom-container">
+            <p>
+              {list.filter((item) => item.checked === false).length}
+              &nbsp;items left
             </p>
-            <p
-              onClick={() => {
-                handleFilter(false);
-              }}
-            >
-              Active
-            </p>
-            <p
-              onClick={() => {
-                handleFilter(true);
-              }}
-            >
-              Completed
-            </p>
+            <div className="filter-container">
+              <p
+                className={filter === "all" ? "active" : ""}
+                onClick={() => {
+                  handleFilter("all");
+                }}
+              >
+                All
+              </p>
+              <p
+                className={filter === false ? "active" : ""}
+                onClick={() => {
+                  handleFilter(false);
+                }}
+              >
+                Active
+              </p>
+              <p
+                className={filter === true ? "active" : ""}
+                onClick={() => {
+                  handleFilter(true);
+                }}
+              >
+                Completed
+              </p>
+            </div>
+            <p onClick={() => handleClearCompleted()}>Clear completed</p>
           </div>
-          <p onClick={() => handleClearCompleted()}>Clear completed</p>
         </div>
       </div>
     </div>

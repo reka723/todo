@@ -8,6 +8,7 @@
   background-size: 100%;
   background-color: hsl(235, 21%, 11%);
   font-family: "Josefin Sans", sans-serif;
+  color: hsl(234, 39%, 85%);
 }
 
 .drag-and-drop {
@@ -19,12 +20,9 @@
   justify-content: center;
   font-size: calc(10px + 1.5vmin);
 }
-.drag-and-drop > * {
-}
 
 h1 {
   padding-top: 12%;
-  color: hsl(236, 33%, 92%);
   letter-spacing: 15px;
 
   margin: 0;
@@ -43,13 +41,15 @@ h1 {
     transform: rotate(360deg);
   }
 }
-
+.list-container {
+  margin-top: 1em;
+  border-radius: 5px;
+  overflow: hidden;
+}
 .characters {
   list-style: none;
   padding-left: 0;
-  background-color: hsl(233, 14%, 35%);
   margin: 0;
-  margin-top: 1em;
 }
 
 .input-container {
@@ -58,15 +58,18 @@ h1 {
 
 .characters li,
 .input-container {
-  background-color: hsl(233, 14%, 35%);
+  background-color: hsla(235, 24%, 19%, 1);
   width: 400px;
   height: 30px;
   display: flex;
   align-items: center;
   padding: 10px 20px;
 }
+.hide-delete {
+  visibility: hidden;
+}
 .characters li {
-  border-bottom: hsl(0, 0%, 98%) 1px solid;
+  border-bottom: hsl(234, 11%, 52%) 1px solid;
   text-align: start;
 }
 
@@ -74,12 +77,22 @@ h1 {
   padding-top: 1%;
   max-width: none;
   margin: 0;
-  color: hsl(236, 33%, 92%);
 }
 
 .card {
   display: flex;
   justify-content: space-between;
+}
+.card:hover .hide-delete {
+  visibility: visible;
+}
+.card:hover .checkbox {
+  background: linear-gradient(hsla(235, 24%, 19%, 1), hsla(235, 24%, 19%, 1))
+      padding-box,
+    linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))
+      border-box;
+
+  border: 1px solid transparent;
 }
 
 .input-container {
@@ -90,7 +103,7 @@ h1 {
   height: 75%;
   border: none;
   font-size: 18px;
-  background-color: hsl(233, 14%, 35%);
+  background-color: hsla(235, 24%, 19%, 1);
 }
 .input:focus {
   outline: none;
@@ -127,7 +140,8 @@ h1 {
   font-size: 12px;
   width: 400px;
   padding: 10px 20px;
-  background-color: hsl(233, 14%, 35%);
+  background-color: hsla(235, 24%, 19%, 1);
+  color: hsl(234, 11%, 52%);
 }
 
 .filter-container {
@@ -136,6 +150,9 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   margin-inline: 20px;
+}
+.active {
+  color: hsl(220, 98%, 61%);
 }
 
 .filter-container > p:hover,
