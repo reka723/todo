@@ -6,9 +6,11 @@ import InputForm from "./InputForm";
 import { todoActions } from "../store/todoSlice";
 import { IconButton } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
+import { DarkModeToggle } from "./Toggle";
 
 function App() {
   const list = useSelector((state) => state.todo.list);
+  const [isDark, setIsDark] = useState(true);
   const [filter, setFilter] = useState("all");
   const counter = useSelector((state) => state.todo.counter);
   const dispatch = useDispatch();
@@ -40,7 +42,10 @@ function App() {
   console.log(filteredItems);
   return (
     <div className="container">
-      <h1>TODO</h1>
+      <div>
+        <h1>TODO</h1>
+        <DarkModeToggle setIsDark={setIsDark} isDark={isDark} />
+      </div>
       <div className="drag-and-drop">
         <InputForm />
         <div className="list-container">

@@ -7,9 +7,12 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100%;
-  background-color: hsl(235, 21%, 11%);
+  background-color: hsl(0, 0%, 98%);
   font-family: "Josefin Sans", sans-serif;
   color: hsl(234, 39%, 85%);
+}
+.App.dark {
+  background-color: hsl(235, 21%, 11%);
 }
 
 .drag-and-drop {
