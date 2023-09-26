@@ -86,7 +86,8 @@ h1 {
 .card:hover .hide-delete {
   visibility: visible;
 }
-.card:hover .checkbox {
+
+.checkbox:hover {
   background: linear-gradient(hsla(235, 24%, 19%, 1), hsla(235, 24%, 19%, 1))
       padding-box,
     linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))
